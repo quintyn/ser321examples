@@ -67,6 +67,8 @@ task runF(type: JavaExec) {
  		args(project.getProperty('denom'), project.getProperty('num'));
  	} else if (project.hasProperty("denom")){
  		args(project.getProperty('denom'), 1);
+		}
+}
 
 // Example how you can add that libraries can be pulled from mavenCentral()
 // repositories {

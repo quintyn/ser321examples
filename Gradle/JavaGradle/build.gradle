@@ -56,6 +56,18 @@ task runFraction(type: JavaExec) {
 // 2. Create a new gradle tasks that accepts two arguments and 
 //    can be called as: gradle runFrac -Pdenom=4 -Pnum=3 or as gradle runFrac -Pnum=3 -Pdenom=4 , also make sure it can run with only 1 or no arguments
 
+task runF(type: JavaExec) {
+	group 'Fraction Tasks'
+	description 'Tasks which runs Fraction with two arguments'
+	
+	classpath = sourceSets.main.runtimeClasspath
+	
+	main = 'Fraction'
+ 	if (project.hasProperty("denom") && project.hasProperty("num")) {
+ 		args(project.getProperty('denom'), project.getProperty('num'));
+ 	} else if (project.hasProperty("denom")){
+ 		args(project.getProperty('denom'), 1);
+
 // Example how you can add that libraries can be pulled from mavenCentral()
 // repositories {
 //   mavenCentral()
